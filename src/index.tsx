@@ -41,6 +41,19 @@ export default {
       serialNumber != null ? serialNumber : null
     );
   },
+  getPassSerialNumbers: async () => {
+    if (Platform.OS === 'android') {
+      throw new Error('getPassSerialNumbers method not available on Android');
+    }
+    return await WalletManager.getPassSerialNumbers();
+  },
+  getPassTypeIdentifiers: async () => {
+    if (Platform.OS === 'android') {
+      throw new Error('getPassIdentifiers method not available on Android');
+    }
+    return await WalletManager.getPassTypeIdentifiers();
+  },
+
 } as WalletManagerType;
 
 // Platform.OS === 'ios'
