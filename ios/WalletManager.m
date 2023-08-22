@@ -132,25 +132,6 @@ RCT_EXPORT_METHOD(
 }
 
 RCT_EXPORT_METHOD(
-                  getPassSerialNumbers:(RCTPromiseResolveBlock)resolve
-                  rejecter:(RCTPromiseRejectBlock)reject)
-{
-  PKPassLibrary * passLibrary = [[PKPassLibrary alloc] init];
-  NSArray *passes = [passLibrary passes];
-  NSMutableArray *serialNumbers = [NSMutableArray array];
-  
-  for (PKPass *pass in passes) {
-    NSString *serialNumber = [pass serialNumber];
-    if (serialNumber) {
-      [serialNumbers addObject:serialNumber];
-    }
-  }
-  
-  resolve(serialNumbers);
-  return;
-}
-
-RCT_EXPORT_METHOD(
                   getPassTypeIdentifiers:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
